@@ -1,0 +1,12 @@
+\begin{tabular}{lr}
+\toprule
+Method & OOF accuracy \\
+\midrule
+single lgbm_tuned & 0.812500 \\
+single xgb_tuned & 0.812100 \\
+single cat_tuned & 0.815400 \\
+simple average & 0.814800 \\
+weighted {'lgbm_tuned': 0.0, 'xgb_tuned': 0.2, 'cat_tuned': 0.8} & 0.817100 \\
+stacking (logistic regression) & 0.816500 \\
+\bottomrule
+\end{tabular}

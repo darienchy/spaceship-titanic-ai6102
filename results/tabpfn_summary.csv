@@ -1,0 +1,4 @@
+Model,CV acc (seed-0 folds),± std
+CatBoost default,0.8169,0.008
+TabPFN,0.8171,0.0037
+Blend (50/50),0.8201,0.0059

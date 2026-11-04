@@ -1,0 +1,10 @@
+\begin{tabular}{ll}
+\toprule
+Component & Setting \\
+\midrule
+Features & logic imputation + groups G1–G4 (28 features; 40 after one-hot for TabPFN) \\
+CatBoost & library defaults (1,000 trees, depth 6, automatic learning rate), mean of 5 seeds \\
+TabPFN & TabPFNClassifier defaults, Colab T4 GPU, random_state=0 \\
+Blend & mean of the two probabilities, threshold 0.5 \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,35 @@
+run_id,date,experiment,description,model,cv_mean,cv_std,oof_acc,seconds,lb_score
+B0,2026-11-03 20:40,Baseline,"raw features, native NaN, default LGBM",lgbm,0.79562,0.00894,0.79765,9.4,0.79424
+E1-0,2026-11-03 20:55,E1 cumulative,G0 raw,lgbm,0.79589,0.00996,0.79673,13.7,
+E1-1,2026-11-03 20:55,E1 cumulative,+G1 cabin,lgbm,0.80793,0.00837,0.8072,14.0,
+E1-2,2026-11-03 20:55,E1 cumulative,+G2 group,lgbm,0.80805,0.00898,0.80985,13.6,
+E1-3,2026-11-03 20:55,E1 cumulative,+G3 spending,lgbm,0.81119,0.00748,0.81364,13.8,
+E1-4,2026-11-03 20:56,E1 cumulative,+G4 age,lgbm,0.81273,0.00931,0.81238,13.7,
+E1-woG1,2026-11-03 20:57,E1 leave-one-out,all minus G1,lgbm,0.79524,0.00837,0.79777,13.5,
+E1-woG2,2026-11-03 20:57,E1 leave-one-out,all minus G2,lgbm,0.81108,0.00902,0.80996,13.8,
+E1-woG3,2026-11-03 20:58,E1 leave-one-out,all minus G3,lgbm,0.80793,0.00896,0.80824,13.7,
+E1-woG4,2026-11-03 20:58,E1 leave-one-out,all minus G4,lgbm,0.81119,0.00748,0.81364,13.6,
+E2-lgbm-native,2026-11-03 20:59,E2 imputation,native,lgbm,0.81039,0.00729,0.81203,14.0,
+E2-lgbm-simple,2026-11-03 20:59,E2 imputation,simple,lgbm,0.81142,0.00905,0.81307,13.7,
+E2-lgbm-logic,2026-11-03 20:59,E2 imputation,logic,lgbm,0.81273,0.00931,0.81238,13.7,
+E2-lgbm-logic_noR2b,2026-11-03 20:59,E2 imputation,logic_noR2b,lgbm,0.81142,0.00904,0.81192,13.7,
+E2-logreg-simple,2026-11-03 20:59,E2 imputation,simple,logreg,0.79784,0.00822,0.79742,1.6,
+E2-logreg-logic,2026-11-03 20:59,E2 imputation,logic,logreg,0.798,0.00915,0.798,1.5,
+E2-logreg-logic_noR2b,2026-11-03 20:59,E2 imputation,logic_noR2b,logreg,0.798,0.00826,0.79765,1.5,
+E3-group,2026-11-03 21:05,E3 CV scheme,StratifiedGroupKFold,lgbm,0.81273,0.00931,0.81238,13.9,0.8071
+E3-plain,2026-11-03 21:05,E3 CV scheme,StratifiedKFold,lgbm,0.81468,0.00616,0.81376,12.5,0.8071
+E4-logreg-default,2026-11-03 22:34,E4 models,default params,logreg,0.798,0.00915,0.798,1.7,
+E4-rf-default,2026-11-03 22:34,E4 models,default params,rf,0.80206,0.00828,0.80375,16.6,
+E4-mlp-default,2026-11-03 22:34,E4 models,default params,mlp,0.79884,0.00861,0.80513,5.2,
+E4-lgbm-default,2026-11-03 22:35,E4 models,default params,lgbm,0.81295,0.00868,0.81422,7.6,
+E4-xgb-default,2026-11-03 22:35,E4 models,default params,xgb,0.80413,0.00762,0.81065,3.9,
+E4-cat-default,2026-11-03 22:35,E4 models,default params,cat,0.81491,0.00719,0.81686,41.2,0.80757
+E4-lgbm-tuned,2026-11-03 23:50,E4 models,Optuna-tuned,lgbm,0.81131,0.00758,0.81249,49.7,
+E4-xgb-tuned,2026-11-03 23:50,E4 models,Optuna-tuned,xgb,0.81169,0.00866,0.81215,12.7,
+E4-cat-tuned,2026-11-03 23:51,E4 models,Optuna-tuned,cat,0.81503,0.00816,0.81537,45.6,0.80406
+E5-avg3,2026-11-04 00:00,E5 ensembles,mean of lgbm/xgb/cat tuned,ensemble,0.8148,0.00792,0.81479,0.0,0.80453
+E5-cat2,2026-11-04 00:00,E5 ensembles,mean of cat default + cat tuned,ensemble,0.81617,0.0062,0.81617,0.0,0.80406
+E4-cat-tuned3,2026-11-04 00:33,E4 models,"Optuna, 3-seed objective",cat,0.81591,0.00797,0.81721,41.6,0.805
+E4-tabpfn,2026-11-04 11:42,E4 models,"TabPFN (Colab T4), seed-0 folds",tabpfn,0.8171,0.0036,0.81709,0.0,0.81295
+E5-tabpfn-cat,2026-11-04 11:42,E5 ensembles,"50/50 TabPFN + CatBoost default, seed-0 folds",ensemble,0.82009,0.00606,0.82009,0.0,0.81248
+E7-PL,2026-11-04 11:46,E7 tricks,"pseudo-labelling, conf 0.95",cat,0.81457,0.00698,,0,
